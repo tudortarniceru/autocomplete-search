@@ -97,12 +97,10 @@ function searchFunction(val) {
     var res = "";
     var resCount = 0;
     for (var i = 0; i < country_list.length; ++i) {
-        for (var i = 0; i < country_list.length; ++i) {
-            var index = KMPSearch(val, country_list[i]);
-            if (index != -1) {
-                res += "\n" + country_list[i];
-                resCount++;
-            }
+        var index = KMPSearch(val, country_list[i]);
+        if (index != -1) {
+            res += "\n" + country_list[i];
+            resCount++;
         }
     }
     alert("Results: " + resCount + "\n" + res + "\n");
