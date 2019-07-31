@@ -1,0 +1,77 @@
+body {
+    margin: 0px;
+    background-image: url("background/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+#text-area {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    font-family: 'Lato', sans-serif;
+}
+
+#title {
+    font-size: 46px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #424242;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 2px;
+}
+
+#top-text-area {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-text-area {
+    width: 70px;
+    font-size: 24px;
+    padding: 15px 20px 15px 20px;
+    background-color: #424242;
+    border: 2px solid #424242;
+    box-sizing: border-box;
+    color: white;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#textbox {
+    width: 530px;
+    font-size: 24px;
+    padding: 15px 20px 15px 20px;
+    background-color: #54575b;
+    border: 2px solid #424242;
+    box-sizing: border-box;
+    color: white;
+    opacity: 0.85;
+}
+
+#search-results {
+    width: 100%;
+}
+
+.result {
+    width: 100%;
+    font-size: 16px;
+    padding: 15px 20px 15px 20px;
+    background-color: #54575b;
+    border: 2px solid #424242;
+    box-sizing: border-box;
+    color: white;
+    opacity: 0.9;
+    border-top: 0px;
+}
