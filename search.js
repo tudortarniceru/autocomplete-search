@@ -29,8 +29,9 @@ function KMPSearch(pat, txt) {
             j++;
         }
         if (j == m) {
+            var index = i - j;
             j = lps[j - 1];
-            return 1;
+            return index;
         }
         else if (i < n && pat[j] != txt[i]) {
             if (j != 0) {
@@ -41,7 +42,7 @@ function KMPSearch(pat, txt) {
             }
         }
     }
-    return 0;
+    return -1;
 }
 
 function computeLPSArray(pat, lps) {
@@ -70,8 +71,18 @@ function inputChange(val) {
     if (val.length >= 3) {
         var resCount = 0;
         for (var i = 0; i < country_list.length; ++i) {
-            if (KMPSearch(val, country_list[i]) == 1) {
-                res += "<div class='result'>" + country_list[i] + "</div>";
+            var index = KMPSearch(val, country_list[i]);
+            if (index != -1) {
+                var country = country_list[i];
+                var word = "";
+                if (index > 0) {
+                    word += country.slice(0, index);
+                }
+                word += "<b>" + country.slice(index, index + val.length) + "</b>";
+                if (index + val.length < country.length) {
+                    word += country.slice(index + val.length, country.length);
+                }
+                res += "<div class='result'>" + word + "</div>";
                 resCount++;
                 if (resCount == 5) {
                     i = country_list.length + 10;
@@ -87,7 +98,8 @@ function searchFunction(val) {
     var resCount = 0;
     for (var i = 0; i < country_list.length; ++i) {
         for (var i = 0; i < country_list.length; ++i) {
-            if (KMPSearch(val, country_list[i]) == 1) {
+            var index = KMPSearch(val, country_list[i]);
+            if (index != -1) {
                 res += "\n" + country_list[i];
                 resCount++;
             }
